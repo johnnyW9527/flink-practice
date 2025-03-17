@@ -44,7 +44,6 @@ public class StateDemo2 {
 
         DataStreamSource<String> resultDs = env.addSource(new MyKafkaSource());
         resultDs.print();
-        State
         env.execute();
     }
 
