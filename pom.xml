@@ -171,7 +171,11 @@
       <artifactId>hive-exec</artifactId>
       <version>2.1.0</version>
     </dependency>
-
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-statebackend-rocksdb_2.12</artifactId>
+      <version>${flink.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-shaded-hadoop-2-uber</artifactId>
@@ -261,6 +265,26 @@
       <groupId>com.alibaba.ververica</groupId>
       <artifactId>flink-connector-mysql-cdc</artifactId>
       <version>1.4.0</version>
+    </dependency>
+
+    <!--commons-beanutils 是 Apache 开源组织提供的用于操作 JAVA BEAN 的工具包。使用 commons-beanutils，我们可以很方便的对 bean 对象的属性进行操作-->
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils</artifactId>
+      <version>1.9.4</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- 数据库连接池和jdbc操作模板 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+      <version>2.0.2.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>2.6.1</version>
     </dependency>
 
   </dependencies>

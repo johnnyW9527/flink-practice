@@ -6,7 +6,6 @@ import com.johnny.flink.advance.model.OrderItem;
 import com.johnny.flink.advance.source.GoodsSource;
 import com.johnny.flink.advance.source.OrderItemSource;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
-import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.co.ProcessJoinFunction;
