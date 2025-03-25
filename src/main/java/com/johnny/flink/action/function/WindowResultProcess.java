@@ -7,6 +7,7 @@ import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Iterator;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -38,12 +39,11 @@ public class WindowResultProcess extends ProcessWindowFunction<CategoryPojo, Obj
 
         double totalPrice = 0D;
         double roundPrice = 0D;
-        Iterator<CategoryPojo> iterator = iterable.iterator();
         for (CategoryPojo categoryPojo : iterable) {
             double price = categoryPojo.getTotalPrice();
             totalPrice += price;
             BigDecimal bigDecimal = new BigDecimal(price);
-            roundPrice = bigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+            roundPrice = bigDecimal.setScale(2, RoundingMode.HALF_UP).doubleValue();
             // * -2.计算出各个分类的销售额top3,其实就是对各个分类的price进行排序取前3
             //注意:我们只需要top3,也就是只关注最大的前3个的顺序,剩下不管!所以不要使用全局排序,只需要做最大的前3的局部排序即可
             //那么可以使用小顶堆,把小的放顶上
